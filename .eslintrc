@@ -20,6 +20,7 @@
     ],
     "no-use-before-define": "off",
     "no-param-reassign": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "react/button-has-type": "off"
   }
 }
