@@ -58,7 +58,21 @@ const ProgressBar = () => {
     <div>
       <h2>Progress Bar</h2>
 
-      <h3>Repeat</h3>
+      <h4>Repeat with timings</h4>
+
+      <BarContainer>
+        <Bar
+          animate={{ x: keyframes }}
+          transition={{
+            loop: Infinity,
+            repeatDelay: 1.5,
+            duration: 5,
+            times: [0, 0.5, 0.6, 0.9, 1]
+          }}
+        />
+      </BarContainer>
+
+      <h4>Repeat with simulated progress</h4>
 
       <ProgressWrapper>
         <BarContainer>
@@ -75,7 +89,7 @@ const ProgressBar = () => {
         <TrackProgress>{progress}%</TrackProgress>
       </ProgressWrapper>
 
-      <h3>Cycle</h3>
+      <h4>Cycle values</h4>
 
       <ProgressWrapper>
         <BarContainer>
@@ -83,11 +97,7 @@ const ProgressBar = () => {
         </BarContainer>
       </ProgressWrapper>
 
-      <button onClick={() => cycleX()}>
-        <span role="img" aria-label="arrow emoji">
-          ↩️
-        </span>
-      </button>
+      <button onClick={() => cycleX()}>Click to cycle</button>
     </div>
   );
 };
