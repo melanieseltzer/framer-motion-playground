@@ -1,36 +1,93 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, useCycle } from 'framer-motion';
 
-const ProgressContainer = styled.div`
-  background: #eee;
+const ProgressWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+const BarContainer = styled.div`
+  background: #8e2de2;
+  background: linear-gradient(to right, #4a00e0, #8e2de2);
   border-radius: 5px;
   overflow: hidden;
-  width: 100%;
-  height: 20px;
-  margin-bottom: 10px;
+  height: 30px;
+  position: relative;
+  flex: 1;
 `;
 
 const Bar = styled(motion.div)`
-  background: #8e2de2;
-  background: linear-gradient(to right, #4a00e0, #8e2de2);
+  background: #eee;
   width: 100%;
   color: #fff;
-  padding: 5px;
   height: 100%;
 `;
 
+const TrackProgress = styled.div`
+  padding-left: 5px;
+  text-align: right;
+  width: 40px;
+`;
+
 const ProgressBar = () => {
+  const [progress, setProgress] = useState(0);
+  const keyframes = ['0%', '25%', '50%', '75%', '100%'];
+  const [x, cycleX] = useCycle('0%', '25%', '50%', '75%', '100%');
+
+  // Simulate a makeshift upload process from 0 - 100%
+  useEffect(() => {
+    let interval = setInterval(() => {
+      setProgress(state => state + 25);
+    }, 1000);
+
+    if (progress === 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        interval = setInterval(() => {
+          setProgress(0);
+        }, 1000);
+      }, 1500);
+    }
+
+    return () => clearInterval(interval);
+  }, [progress]);
+
   return (
     <div>
       <h2>Progress Bar</h2>
 
-      <ProgressContainer>
-        <Bar
-          animate={{ x: ['-75%', '-50%', '-25%', '0%'] }}
-          transition={{ duration: 5, times: [0, 0.7, 0.8, 1] }}
-        />
-      </ProgressContainer>
+      <h3>Repeat</h3>
+
+      <ProgressWrapper>
+        <BarContainer>
+          <Bar
+            animate={{ x: keyframes }}
+            transition={{
+              loop: Infinity,
+              repeatDelay: 1.5,
+              duration: 5
+            }}
+          />
+        </BarContainer>
+
+        <TrackProgress>{progress}%</TrackProgress>
+      </ProgressWrapper>
+
+      <h3>Cycle</h3>
+
+      <ProgressWrapper>
+        <BarContainer>
+          <Bar initial={false} animate={{ x }} transition={{ duration: 1 }} />
+        </BarContainer>
+      </ProgressWrapper>
+
+      <button onClick={() => cycleX()}>
+        <span role="img" aria-label="arrow emoji">
+          ↩️
+        </span>
+      </button>
     </div>
   );
 };
