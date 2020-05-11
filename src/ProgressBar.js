@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion, useCycle } from 'framer-motion';
 
+import { Section } from './Layout';
+
 const ProgressWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -55,9 +57,7 @@ const ProgressBar = () => {
   }, [progress]);
 
   return (
-    <div>
-      <h2>Progress Bar</h2>
-
+    <Section title="Progress Bar">
       <h4>Repeat with timings</h4>
 
       <BarContainer>
@@ -98,7 +98,7 @@ const ProgressBar = () => {
       </ProgressWrapper>
 
       <button onClick={() => cycleX()}>Click to cycle</button>
-    </div>
+    </Section>
   );
 };
 
