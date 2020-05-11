@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const NavWrapper = styled.div`
@@ -27,15 +27,28 @@ const NavWrapper = styled.div`
   }
 `;
 
-const Navigation = () => (
-  <NavWrapper>
-    <h3>Navigation</h3>
-    <nav>
-      <li>
-        <a href="#progress-bar">Progress Bar</a>
-      </li>
-    </nav>
-  </NavWrapper>
-);
+const Navigation = () => {
+  const [headings, setHeadings] = useState([]);
+
+  useEffect(() => {
+    const headingArr = Array.from(document.querySelectorAll('h2'));
+    setHeadings(headingArr);
+  }, []);
+
+  return (
+    <NavWrapper>
+      <h3>Navigation</h3>
+      <nav>
+        {headings.map(heading => {
+          return (
+            <li key={heading.id}>
+              <a href={`#${heading.id}`}>{heading.innerHTML}</a>
+            </li>
+          );
+        })}
+      </nav>
+    </NavWrapper>
+  );
+};
 
 export default Navigation;
