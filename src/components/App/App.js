@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ProgressBar from './ProgressBar';
-import { Layout, Content, Navigation } from './Layout';
+import ProgressBar from '../ProgressBar';
+import { Layout, Content, Navigation } from '../Layout';
 
-function App() {
+const App = () => {
   return (
     <Layout>
       <Content>
@@ -28,6 +28,6 @@ function App() {
       <Navigation />
     </Layout>
   );
-}
+};
 
 export default App;

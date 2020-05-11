@@ -20,7 +20,7 @@ const NavWrapper = styled.div`
   }
 `;
 
-const Navigation = () => (
+export const Navigation = () => (
   <NavWrapper>
     <h3>Navigation</h3>
     <nav>
@@ -30,5 +30,3 @@ const Navigation = () => (
     </nav>
   </NavWrapper>
 );
-
-export default Navigation;
