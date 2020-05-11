@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Layout, Content, Navigation } from '../Layout';
+import { Layout, Content } from '../Layout';
 import Footer from '../Footer';
+import Navigation from '../Navigation';
 
 // playgrounds
 import ProgressBar from '../ProgressBar';
