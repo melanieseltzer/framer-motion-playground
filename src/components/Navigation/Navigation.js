@@ -21,10 +21,6 @@ const NavWrapper = styled.div`
     padding: 0;
     border: 0;
   }
-
-  h3 {
-    margin-top: 0;
-  }
 `;
 
 const Navigation = () => {
