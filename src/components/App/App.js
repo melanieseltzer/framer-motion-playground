@@ -4,8 +4,8 @@ import { Layout, Content } from '../Layout';
 import Footer from '../Footer';
 import Navigation from '../Navigation';
 
-// playgrounds
 import ProgressBar from '../ProgressBar';
+import DragToDismiss from '../DragToDismiss';
 
 const App = () => {
   return (
@@ -27,7 +27,9 @@ const App = () => {
 
           <hr />
 
+          {/* Playgrounds */}
           <ProgressBar />
+          <DragToDismiss />
         </Content>
 
         <Navigation />
