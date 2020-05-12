@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion, useCycle } from 'framer-motion';
 
-import { Section } from '../Layout';
+import { Section } from '../../Layout';
 
 const ProgressWrapper = styled.div`
   display: flex;

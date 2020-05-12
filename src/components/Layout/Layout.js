@@ -17,14 +17,20 @@ export const Content = styled.div`
   }
 `;
 
+export const SectionWrapper = styled.section`
+  h2 {
+    margin-top: 50px;
+  }
+`;
+
 export const Section = ({ title, children }) => {
   const slugifyTitle = slugify(title);
 
   return (
-    <section>
+    <SectionWrapper>
       <h2 id={slugifyTitle}>{title}</h2>
       {children}
-    </section>
+    </SectionWrapper>
   );
 };
 

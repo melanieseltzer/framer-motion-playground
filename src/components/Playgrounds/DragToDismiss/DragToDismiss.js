@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
-import { Section } from '../Layout';
+import { Section } from '../../Layout';
 
 const Toast = styled(motion.div)`
   position: fixed;

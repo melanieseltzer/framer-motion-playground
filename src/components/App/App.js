@@ -4,8 +4,8 @@ import { Layout, Content } from '../Layout';
 import Footer from '../Footer';
 import Navigation from '../Navigation';
 
-import ProgressBar from '../ProgressBar';
-import DragToDismiss from '../DragToDismiss';
+import ProgressBar from '../Playgrounds/ProgressBar';
+import DragToDismiss from '../Playgrounds/DragToDismiss';
 
 const App = () => {
   return (
