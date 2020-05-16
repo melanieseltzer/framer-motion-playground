@@ -7,6 +7,7 @@ import Navigation from '../Navigation';
 import ProgressBar from '../Playgrounds/ProgressBar';
 import DragToDismiss from '../Playgrounds/DragToDismiss';
 import LightDarkMode from '../Playgrounds/LightDarkMode';
+import ShuffleList from '../Playgrounds/ShuffleList';
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
           <ProgressBar />
           <DragToDismiss />
           <LightDarkMode />
+          <ShuffleList />
         </Content>
 
         <Navigation />
