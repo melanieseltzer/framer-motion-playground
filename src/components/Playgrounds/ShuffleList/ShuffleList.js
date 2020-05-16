@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
+import { shuffle } from 'lodash';
 // import { motion } from 'framer-motion';
 
 import { Section } from '../../Layout';
@@ -19,6 +20,11 @@ const ShuffleList = () => {
     ref.current.value = null;
   };
 
+  const handleShuffleNames = () => {
+    const shuffledNames = shuffle(names);
+    setNames(shuffledNames);
+  };
+
   return (
     <Section title="Shuffle List">
       <p>Add a name to get started!</p>
@@ -27,16 +33,17 @@ const ShuffleList = () => {
         <button>Add</button>
       </FormWrapper>
 
-      <h3>Chore chart</h3>
       {names.length ? (
-        <ul>
+        <ol>
           {names.map(name => (
             <li key={name}>{name}</li>
           ))}
-        </ul>
+        </ol>
       ) : (
         <p>No names yet</p>
       )}
+
+      <button onClick={handleShuffleNames}>Shuffle names</button>
     </Section>
   );
 };
