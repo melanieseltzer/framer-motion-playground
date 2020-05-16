@@ -1,23 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 // import { motion } from 'framer-motion';
 
 import { Section } from '../../Layout';
 
-const FormWrapper = styled.div`
+const FormWrapper = styled.form`
   display: flex;
 `;
 
 const ShuffleList = () => {
-  const [names] = useState([]);
+  const [names, setNames] = useState([]);
+  const ref = useRef(null);
+
+  const handleAddName = event => {
+    const { value } = ref.current;
+    event.preventDefault();
+    setNames(state => [...state, value]);
+    ref.current.value = null;
+  };
+
   return (
     <Section title="Shuffle List">
       <p>Add a name to get started!</p>
-      <FormWrapper>
-        <input placeholder="E.g John" />
+      <FormWrapper onSubmit={handleAddName}>
+        <input ref={ref} placeholder="E.g John" />
         <button>Add</button>
       </FormWrapper>
 
+      <h3>Chore chart</h3>
       {names.length ? (
         <ul>
           {names.map(name => (
