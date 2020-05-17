@@ -23,33 +23,11 @@ const Toast = styled(motion.div)`
   }
 `;
 
-const ToastIcon = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #ffd9d9;
-  color: #cd0203;
+const ToastColorBorder = styled.div`
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: #fff;
   padding: 10px;
-  width: auto;
-`;
-
-const IconWrapper = styled.span`
-  border-radius: 50px;
-  border: 2px solid #cd0203;
-  width: 25px;
-  height: 25px;
-`;
-
-const CloseIcon = styled.span`
-  :before {
-    content: 'x';
-    font-weight: 300;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.1rem;
-  }
+  width: 20px;
 `;
 
 const ToastContent = styled.div`
@@ -94,11 +72,7 @@ const DragToDismiss = () => {
           style={{ x, opacity: showToast ? opacity : 0 }}
           onDragEnd={handleDragEnd}
         >
-          <ToastIcon>
-            <IconWrapper>
-              <CloseIcon />
-            </IconWrapper>
-          </ToastIcon>
+          <ToastColorBorder />
           <ToastContent>
             <div>
               <h4>I&apos;m a message toast</h4>

@@ -11,8 +11,7 @@ const ProgressWrapper = styled.div`
 `;
 
 const BarContainer = styled.div`
-  background: #8e2de2;
-  background: linear-gradient(to right, #4a00e0, #8e2de2);
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
   border-radius: 5px;
   overflow: hidden;
   height: 30px;

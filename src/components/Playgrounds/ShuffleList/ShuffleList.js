@@ -14,7 +14,7 @@ const List = styled.ul`
 `;
 
 const ListItem = styled(motion.li)`
-  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
   list-style: none;
   margin: 0;
   margin-bottom: 5px;

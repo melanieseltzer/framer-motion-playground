@@ -1,4 +1,5 @@
 import React from 'react';
+import { createGlobalStyle } from 'styled-components';
 
 import { Layout, Content } from '../Layout';
 import Footer from '../Footer';
@@ -9,9 +10,18 @@ import DragToDismiss from '../Playgrounds/DragToDismiss';
 import LightDarkMode from '../Playgrounds/LightDarkMode';
 import ShuffleList from '../Playgrounds/ShuffleList';
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+`;
+
 const App = () => {
   return (
     <>
+      <GlobalStyle />
       <Layout>
         <Content>
           <h1>Framer Motion Playground</h1>

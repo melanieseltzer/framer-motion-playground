@@ -7,6 +7,8 @@ import { slugify } from '../../utils';
 export const Layout = styled.div`
   display: flex;
   flex-wrap: wrap;
+  max-width: 800px;
+  margin: 20px auto;
 `;
 
 export const Content = styled.div`
@@ -24,11 +26,11 @@ export const SectionWrapper = styled.section`
 `;
 
 export const Section = ({ title, children }) => {
-  const slugifyTitle = slugify(title);
+  const id = slugify(title);
 
   return (
     <SectionWrapper>
-      <h2 id={slugifyTitle}>{title}</h2>
+      <h2 id={id}>{title}</h2>
       {children}
     </SectionWrapper>
   );
