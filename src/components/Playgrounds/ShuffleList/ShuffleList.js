@@ -24,42 +24,47 @@ const ListItem = styled(motion.li)`
 `;
 
 const ShuffleList = () => {
-  const [names, setNames] = useState([]);
+  const [words, setWords] = useState([]);
   const ref = useRef(null);
 
   const handleAddName = event => {
-    const { value } = ref.current;
     event.preventDefault();
-    setNames(state => [...state, value]);
+
+    const { value } = ref.current;
+    if (!value) return;
+
+    setWords(state => [...state, value]);
     ref.current.value = null;
   };
 
-  const handleShuffleNames = () => {
-    const shuffledNames = shuffle(names);
-    setNames(shuffledNames);
+  const handleShuffleWords = () => {
+    const shuffledWords = shuffle(words);
+    setWords(shuffledWords);
   };
 
   return (
     <Section title="Shuffle List">
-      <p>Add a name to get started!</p>
+      <p>Add a couple of words to get started, and then click to shuffle!</p>
       <FormWrapper onSubmit={handleAddName}>
-        <input ref={ref} placeholder="E.g John" />
+        <input ref={ref} />
         <button>Add</button>
       </FormWrapper>
 
-      {names.length ? (
+      {words.length ? (
         <List>
-          {names.map(name => (
+          {words.map(name => (
             <ListItem key={name} positionTransition>
               {name}
             </ListItem>
           ))}
         </List>
       ) : (
-        <p>No names yet</p>
+        <p>No words yet</p>
       )}
 
-      <button onClick={handleShuffleNames}>Shuffle names</button>
+      {words.length ? (
+        <button onClick={handleShuffleWords}>Shuffle words</button>
+      ) : null}
     </Section>
   );
 };
